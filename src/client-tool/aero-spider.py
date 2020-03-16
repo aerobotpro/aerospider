@@ -84,9 +84,7 @@ owa
 gw
 store
 2tty
-gov
 vps
-govyty
 hgfgdf
 news
 1rer
@@ -119,7 +117,6 @@ staff
 management
 classified
 teamspeak
-mil
 payment
 source
 panel
