@@ -1,7 +1,7 @@
 <?php
 $update_version = '1.0.0.1';
 $update_file_name = 'update.exe';
-$update_endpoint = 'https://aero-bot.pro/spider/'.$update_file_name;
+$update_endpoint = 'https://MY_SERVER/spider/'.$update_file_name;
 $announcement = 'Go To SETTINGS > Toggle Probes off as that api is down';
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -12,12 +12,12 @@ session_start();
 $session_id = session_id();
 $servername = "localhost";
 $username = "root";
-$password = "oggro17$$";
-$dbname = "aerobot";
+$password = "password123";
+$dbname = "mydb";
 $conn = new mysqli($servername, $username, $password, $dbname);
 $my_addr = $_SERVER['HTTP_X_FORWARDED_FOR'];
 if (((!isset($_GET['user_key'])) || ((!isset($_GET['client']))))) { 
-    header("Location: https://aero-bot.pro");
+    header("Location: https://.pro");
 }else{
     $user_key = $_GET['user_key'];
     $update = $_GET['update'];
