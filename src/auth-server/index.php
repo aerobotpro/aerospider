@@ -1,11 +1,12 @@
 <?php
+$hostname = "myserver.com"
 $update_version = '1.0.0.1';
 $update_file_name = 'update.exe';
-$update_endpoint = 'https://MY_SERVER/spider/'.$update_file_name;
-$announcement = 'Go To SETTINGS > Toggle Probes off as that api is down';
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-ini_set('max_execution_time', 300); //300 seconds = 5 minutes. In case if your CURL is slow and is loading too much (Can be IPv6 problem)
+$update_endpoint = 'https://$hostname/spider/$update_file_name';
+$announcement = 'Welcome To AeroSpider!';
+ini_set('display_errors', 1);// Not for production~
+ini_set('display_startup_errors', 1);// Not for production~
+ini_set('max_execution_time', 30);
 error_reporting(E_ALL);
 
 session_start();
@@ -26,7 +27,7 @@ if (((!isset($_GET['user_key'])) || ((!isset($_GET['client']))))) {
     $query = mysqli_query($conn, "SELECT * FROM spider WHERE user_key='".$user_key."'");
     if(mysqli_num_rows($query) > 0){
 
-        //Existing
+        //Existing USER
         $my_addr_br = '\r\n'.$my_addr;
         $sql = "UPDATE spider SET client='$esc_client', update_version='$update_version', last_login=now(), 
         login_counter = login_counter + 1, last_ip='$my_addr',ip_log=CONCAT(ip_log,'$my_addr_br')
@@ -41,7 +42,7 @@ if (((!isset($_GET['user_key'])) || ((!isset($_GET['client']))))) {
                 $login_counter = $row['login_counter'];
             }
             //if ($update !== $update_version){
-            //    header("Location: https://aero-bot.pro/update.php");
+            //    header("Location: https://$hostname/spider/update.php");
             //}
             if (intval($is_banned) !== 0){
                 echo '{"response":"banned"}';
