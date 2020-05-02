@@ -156,15 +156,15 @@ print("{Fore.GREEN} ╚═══════════════════
 subdomainlist = lists.domains.splitlines()
 for sublist in subdomainlist:
     try:
-        #r = requests.get(str(f'http://isitup.org/{host}.json'))
-        #json = r.json()
-       # domain = str(json['domain'])
-       # port = str(json['port'])
-        #status_code = str(json['status_code'])
-        #if status_code == "1":
-        #    status_code = Fore.GREEN + "Yes"
-       # else:
-        #    status_code = Fore.RED + "No"
+        r = requests.get(str(f'http://isitup.org/{host}.json'))
+        json = r.json()
+        domain = str(json['domain'])
+        port = str(json['port'])
+        status_code = str(json['status_code'])
+        if status_code == "1":
+            status_code = Fore.GREEN + "Yes"
+        else:
+            status_code = Fore.RED + "No"
         response = str(json['response_code'])
         timer = str(json['response_time'])
         hosts = str(sublist) + "." + str(host)
