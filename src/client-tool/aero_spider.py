@@ -508,7 +508,7 @@ class from_auth:
                 winsound.Beep(3049, 25)
                 root = tkinter.Tk()
                 root.withdraw()    
-                messagebox.showinfo(f"Welcome {user_key}!","Logged in via thebothub.host!")
+                messagebox.showinfo(f"Welcome {user_key}!","Logged in via host-info.net!")
                 init_()
                 
             if r.status_code == 300 or r.status_code == 301:
